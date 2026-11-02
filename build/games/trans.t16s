@@ -1,0 +1,29 @@
+randvx 3 640 //random x
+randvx 4 480 //random y
+snvxb 4 384 //last row
+jmp 20 //jump to 4th row
+jmp 68 //draw blue
+snvxb 4 288 //4th row
+jmp 32 //jump to next check
+jmp 84//draw pink
+snvxb 4 192 //3th row
+jmp 44 //jump to next check
+jmp 100 //draw white
+snvxb 4 96 //4th row
+jmp 56 //jump to next check
+jmp 84 //draw pink
+jmp 68 //draw blue
+draw 3 4 //DRAW CALL
+jmp 0
+svx 10 91 // BLUE COLOR
+svx 11 206
+svx 12 250
+jmp 60
+svx 10 245 // PINK COLOR
+svx 11 169
+svx 12 184
+jmp 60
+svx 10 255 // WHITE COLOR
+svx 11 255
+svx 12 255
+jmp 60

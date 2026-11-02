@@ -1,0 +1,2 @@
+rom_name=trans.t16s.t16
+cpu_hz=500000

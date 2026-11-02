@@ -1,0 +1,54 @@
+tran16: 33 opcodes
+--- routines
+0000NNNN	sub NNNN			subroutine at NNNN
+01000000	return				return from subroutine
+
+--- jump
+1000NNNN	jmp NNNN			jump to NNNN
+11VXNNNN	jmpvx NNNN			jump to NNNN + VX
+
+--- skip next if
+20VXNNNN	snvxe VX NNNN		VX equal NNNN
+21VXNNNN	snvxde VX NNNN		VX not equal NNNN
+22VXVY00	snvxevy VX VY		VX equal VY
+23VXVY00	snvxdevy VX VY		VX not equal VY
+24VXNNNN	snvxb VX NNNN		VX bigger then NNNN
+25VXNNNN	snvxs VX NNNN		VX smaller then NNNN
+26VXVY00	snvxbvy VX VY		VX bigger then VY
+27VXVY00	snvxsvy VX VY		VX smaller then VY
+
+--- sets
+30VXNNNN	svx VX NNNN			VX to NNNN
+31VXVY00	svxvy VX VY			VX to VY
+32VXVY00	svxovy VX VY		VX or VY
+33VXVY00	svxavy VX VY		VX and VY
+34VXVY00	svxxvy VX VY		VX xor VY
+3500NNNN	si NNNN				I to NNNN
+
+--- math
+40VXNNNN	avx VX NNNN			add NNNN to VX
+41VXVY00	avxvy VX VY			add VY to VX
+42VXVY00	sbvxvy VX VY			subtract VY from VX
+43VXNNNN	randvx VX NNNN		set VX to random between 0-NNNN
+44VX0000	avxi VX				add VX to I
+
+--- shift
+50VXNNNN	shvxr VX NNNN		shift vx NNNN to the right
+51VXNNNN	shvxl VX NNNN		shift vx NNNN to the left
+
+--- drawing
+60000000	clear				clear display
+61VXVY00	draw VX VY			draw pixel at VX, VY. colors are registers r10 g11 b12.
+
+--- keys
+70KX0000	snkxp KX			skip next if KX pressed
+71KX0000	snkxnp KX			skip next if KX not pressed
+
+--- timers
+8000NNNN	sdel NNNN			set delay timer to NNNN
+8100NNNN	adel NNNN 			add NNNN to delay timer
+
+--- memory
+90VX0000	store VX			store vx to vy starting at i (including both)
+91VX0000	load VX 			load vx to vy starting at i (including both)
+NNNNNNNN	raw	NNNNNNNN		raw bytes

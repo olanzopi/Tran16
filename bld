@@ -1,0 +1,18 @@
+#!/bin/bash
+
+case "$1" in
+    run)
+        cd build
+        rm tran16
+        cmake --build . -j16
+        ;;
+    build)
+        cd build
+        rm tran16
+        cmake --build . -j16
+        ;;
+    *)
+        echo "usage: $0 {run|build}"
+        exit 1
+        ;;
+esac
